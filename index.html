@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calendar</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bondi.css">
+    <link rel="stylesheet" href="style.css">
+<body>
+ <div class="container">
+    <img src="images/calendar.png">
+      <div class="calendar">
+            <div class="left">
+             <p id="date">13</p><br>
+             <h1 id="day">friday</h1>
+            </div> 
+            <div class="right">
+                <p id="month">jan</p>
+                <span id="year">2023</span>
+            </div>
+            <div id="time">
+                <span id="hrs">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span>:</span>
+                <span id="sec">00</span>
+            </div>
+     </div>
+ </div> 
+<script>
+
+const date = document.getElementById("date");
+const day = document.getElementById("day");
+const month = document.getElementById("month");
+const year = document.getElementById("year");
+
+
+const today = new Date();
+const weekDays =['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
+const monthsName =['January', 'February','March', 'April', 'May', 'June', 'July', 'August', 'September',
+ 'October', 'November','December'];
+
+date.innerHTML= (today.getDate()<10? "0":"") + today.getDate();
+day.innerHTML= weekDays[today.getDay()];
+month.innerHTML= monthsName[today.getMonth()];
+year.innerHTML= today.getFullYear();
+
+
+const hours =document.getElementById("hrs");    
+const minuets = document.getElementById("min");
+const second =document.getElementById("sec");
+
+
+setInterval(()=>{
+ let cuurentTime =new Date();
+hours.innerHTML = cuurentTime.getHours();
+minuets.innerHTML = cuurentTime.getMinutes();
+second.innerHTML = cuurentTime.getSeconds();
+
+},1000)
+
+
+
+
+</script>
+</body>
+</head>
